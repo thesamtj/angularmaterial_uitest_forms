@@ -3,7 +3,7 @@
     <mat-toolbar-row>
       <button
         mat-icon-button
-        (click)="sidenav.toggle()"
+        (click)="sidena.toggle()"
         fxShow="true"
         fxHide.gt-sm
       >
@@ -21,11 +21,11 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav>
-      <app-sidenav (closeSideNavigation)="sidenav.close()"></app-sidenav>
+    <mat-sidenav #sidena>
+      <app-sidenav (closeSideNavigation)="sidena.close()"></app-sidenav>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <!-- <mat-sidenav-content>
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
+    </mat-sidenav-content> -->
   </mat-sidenav-container>
 </div>
