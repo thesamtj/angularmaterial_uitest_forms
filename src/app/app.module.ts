@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from "./shared/material-module";
 import { HeaderComponent } from './header/header.component';
+import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
