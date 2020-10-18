@@ -82,11 +82,11 @@ export class SidenavComponent implements OnDestroy {
       route: 'entradasGADE',
     },
     {
-      displayName: 'Expedientes',
+      displayName: 'Customer Service',
       iconName: 'description',
       children: [
         {
-          displayName: 'Mis Expedientes',
+          displayName: 'Customer Profile',
           iconName: 'how_to_reg',
           route: '/misexpedientes',
         },
