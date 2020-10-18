@@ -9,11 +9,13 @@ import { DemoMaterialModule } from "./shared/material-module";
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    CustomerDetailsComponent
   ],
   imports: [
     BrowserModule,
