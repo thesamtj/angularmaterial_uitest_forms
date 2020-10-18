@@ -1,6 +1,6 @@
 export interface Customer {
   customerId: number,
-  customerName: number,
+  customerName: string,
   customerType: string,
   gender: string,
   maritalStatus: string,
@@ -15,3 +15,5 @@ export interface Customer {
   originBranch: string
   lastModified: string
 }
+
+
