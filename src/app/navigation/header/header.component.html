@@ -1,9 +1,8 @@
-<div>
+<div class="spacer">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button
         mat-icon-button
-        (click)="sidena.toggle()"
         fxShow="true"
         fxHide.gt-sm
       >
@@ -20,12 +19,12 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container fxFlexFill>
+  <!-- <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidena>
       <app-sidenav (closeSideNavigation)="sidena.close()"></app-sidenav>
     </mat-sidenav>
-    <!-- <mat-sidenav-content>
+    <mat-sidenav-content>
       <router-outlet></router-outlet>
-    </mat-sidenav-content> -->
-  </mat-sidenav-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->
 </div>
