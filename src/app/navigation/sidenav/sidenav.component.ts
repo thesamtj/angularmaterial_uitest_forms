@@ -1,6 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { NavItem } from "../nav-item";
+import { NavItem } from "../../model/nav-item";
 import {
   ChangeDetectorRef,
   Component,

@@ -5,5 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class CustomerProfileService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    getAllCustomers(): Observable<Customer[]> {
+      return this.http.get('customers.json').pipe(delay(2000)) as Observable<Customer[]>;
+    }
+  }
 }
