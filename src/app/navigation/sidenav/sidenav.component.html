@@ -1,9 +1,10 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
+  <mat-toolbar style="background-color:#f2f4f5;" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h1 class="example-app-name">EazyBank AX</h1>
+    <!-- <h1 class="example-app-name">EazyBank AX</h1> -->
+    <img src="assets/images/eazybank.jpeg" width="150" alt="">
   </mat-toolbar>
 
   <mat-sidenav-container
@@ -15,6 +16,7 @@
       [mode]="mobileQuery.matches ? 'over' : 'side'"
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56"
+      style="background-color: #003366;"
     >
       <mat-nav-list>
         <span *ngFor="let item of menu">

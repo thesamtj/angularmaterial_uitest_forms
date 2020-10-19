@@ -108,7 +108,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
       ],
     },
     {
-      displayName: 'Customer Service',
+      displayName: 'Retail Operations',
       iconName: 'group',
       children: [
         {

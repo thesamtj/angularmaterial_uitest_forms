@@ -3,19 +3,23 @@
   flex-direction: row;
   align-content: space-around;
   margin: 10px auto 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
 .sc-items1 {
   flex: 0 1 auto;
-  width: 70%;
+  width: 60%;
   margin: 0.3em;
 }
 
 .sc-items2 {
   flex: 0 1 auto;
-  width: 30%;
+  width: 40%;
   margin: 0.3em;
+}
+
+.example2-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .mat-stepper-vertical {
@@ -26,4 +30,3 @@
   margin-top: 16px;
   width: 100%;
 }
-
