@@ -1,6 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { NavItem } from "../../model/nav-item";
+import { NavItem } from '../../model/nav-item';
 import {
   ChangeDetectorRef,
   Component,
@@ -10,7 +10,7 @@ import {
   Output,
 } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { CustomerProfileService } from "../../services/customer-profile.service";
+import { CustomerProfileService } from '../../services/customer-profile.service';
 import { Customer } from 'src/app/model/customer';
 
 @Component({
@@ -26,7 +26,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
     'weight',
     'symbol',
     'modified',
-    'action'
+    'action',
   ];
   dataSource = new MatTableDataSource<Customer>();
   selection = new SelectionModel<Customer>(true, []);
@@ -35,7 +35,11 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private customerService: CustomerProfileService) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    private customerService: CustomerProfileService
+  ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -43,8 +47,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscriptions.push(
-      this.customerService.getAllCustomers().subscribe(customers => {
-        console.log("customers loaded", customers);
+      this.customerService.getAllCustomers().subscribe((customers) => {
+        console.log('customers loaded', customers);
         this.onDataLoad(customers);
       })
     );
@@ -83,14 +87,9 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   menu: NavItem[] = [
     {
-      displayName: 'Escritorio',
+      displayName: 'Samuel Tijani',
       iconName: 'desktop_windows',
       route: 'escritorio',
-    },
-    {
-      displayName: 'Entradas GADE',
-      iconName: 'ballot',
-      route: 'entradasGADE',
     },
     {
       displayName: 'Customer Service',
@@ -102,18 +101,18 @@ export class SidenavComponent implements OnInit, OnDestroy {
           route: '/customer-profile',
         },
         {
-          displayName: 'Todos',
+          displayName: 'Customer Profile',
           iconName: 'waves',
-          route: '/todos',
+          route: '/customer-profile',
         },
       ],
     },
     {
-      displayName: 'Perfiles',
+      displayName: 'Customer Service',
       iconName: 'group',
       children: [
         {
-          displayName: 'Búsqueda Perfil',
+          displayName: 'Customer Profile',
           iconName: 'search',
           route: '/busquedaperfiles',
         },
@@ -133,7 +132,6 @@ export class SidenavComponent implements OnInit, OnDestroy {
        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`
   );
-
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);

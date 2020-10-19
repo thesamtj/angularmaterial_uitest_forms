@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DemoMaterialModule } from "./shared/material-module";
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavComponent } from './navigation/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
     HttpClientModule,
     AppRoutingModule,
     DemoMaterialModule,
+    FlexLayoutModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -49,6 +49,12 @@ export class CustomerListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  getAllRecords() {}
+
+  getAllSelected() {}
+
+  addRecord() {}
+
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
