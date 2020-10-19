@@ -1,0 +1,29 @@
+.sc-container {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  margin: 10px auto 0 auto;
+  width: 70%;
+}
+
+.sc-items1 {
+  flex: 0 1 auto;
+  width: 70%;
+  margin: 0.3em;
+}
+
+.sc-items2 {
+  flex: 0 1 auto;
+  width: 30%;
+  margin: 0.3em;
+}
+
+.mat-stepper-vertical {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  width: 100%;
+}
+
