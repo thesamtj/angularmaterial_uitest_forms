@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { AddCustomerComponent } from './customers/add-customer/add-customer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,8 @@ import { AddCustomerComponent } from './customers/add-customer/add-customer.comp
     AppRoutingModule,
     DemoMaterialModule,
     FlexLayoutModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [],

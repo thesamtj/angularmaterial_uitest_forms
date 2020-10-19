@@ -101,9 +101,9 @@ export class SidenavComponent implements OnInit, OnDestroy {
           route: '/customer-profile',
         },
         {
-          displayName: 'Customer Profile',
+          displayName: 'Add Customer',
           iconName: 'waves',
-          route: '/customer-profile',
+          route: '/add-customer',
         },
       ],
     },
