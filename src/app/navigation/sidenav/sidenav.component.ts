@@ -87,7 +87,7 @@ export class SidenavComponent implements OnInit, OnDestroy {
 
   menu: NavItem[] = [
     {
-      displayName: 'Samuel Tijani',
+      displayName: 'Dashboard',
       iconName: 'desktop_windows',
       route: 'escritorio',
     },
