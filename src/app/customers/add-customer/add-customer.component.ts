@@ -7,13 +7,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-customer.component.scss'],
 })
 export class AddCustomerComponent implements OnInit {
-  basicInfoFormGroup: FormGroup;
+  iBasicInfoFormGroup: FormGroup;
+  cBasicInfoFormGroup: FormGroup;
   addressInfoFormGroup: FormGroup;
   phoneInfoFormGroup: FormGroup;
   emailInfoFormGroup: FormGroup;
   identityInfoFormGroup: FormGroup;
   educationalInfoFormGroup: FormGroup;
   otherInfoFormGroup: FormGroup;
+  typeOfAccount = 'Individual';
 
   constructor(private fb: FormBuilder) {}
 
@@ -22,20 +24,41 @@ export class AddCustomerComponent implements OnInit {
   }
 
   createAddCustomerForm() {
-    this.basicInfoFormGroup = this.fb.group({
+    this.iBasicInfoFormGroup = this.fb.group({
       firstName: [null, Validators.required],
       middleName: [null, Validators.required],
       lastName: [null, Validators.required],
       customerType: [null, Validators.required],
       title: [null, Validators.required],
-      gender: ['m', Validators.required],
+      gender: [null, Validators.required],
       religion: [null, Validators.required],
       nationality: [null, Validators.required],
+      soo: [null, Validators.required],
       lga: [null, Validators.required],
       birthDate: [null, Validators.required],
       birthPlace: [null, Validators.required],
       tin: [null, Validators.required],
       bvn: [null, Validators.required],
+    });
+
+    this.cBasicInfoFormGroup = this.fb.group({
+      cFullName: [null, Validators.required],
+      cCustomerType: [null, Validators.required],
+      title: [null, Validators.required],
+      gender: [null, Validators.required],
+      religion: [null, Validators.required],
+      cNationality: [null, Validators.required],
+      cSor: [null, Validators.required],
+      cLga: [null, Validators.required],
+      cRegDate: [null, Validators.required],
+      cRegPlace: [null, Validators.required],
+      cTin: [null, Validators.required],
+      bvn: [null, Validators.required],
+      cBSector: [null, Validators.required],
+      vBType: [null, Validators.required],
+      cOin: [null, Validators.required],
+      dOin: [null, Validators.required],
+      certIssuer: [null, Validators.required],
     });
 
     this.addressInfoFormGroup = this.fb.group({
@@ -88,6 +111,7 @@ export class AddCustomerComponent implements OnInit {
     vReligion: null,
     vNationality: null,
     vLga: null,
+    vSoo: null,
     vBirthDate: null,
     vBirthPlace: null,
     vTin: null,
@@ -111,6 +135,19 @@ export class AddCustomerComponent implements OnInit {
     vRelatedType: null,
     vRelatedFN: null,
     vRelatedMN: null,
-    vRelatedSN: null
+    vRelatedSN: null,
+    vCFullName: null,
+    vCCustomerType: null,
+    vCNationality: null,
+    vCSor: null,
+    vCLga: null,
+    vCRegDate: null,
+    vCRegPlace: null,
+    vCTin: null,
+    vCBSector: null,
+    vCBType: null,
+    vCOin: null,
+    vDOin: null,
+    vCertIssuer: null,
   };
 }

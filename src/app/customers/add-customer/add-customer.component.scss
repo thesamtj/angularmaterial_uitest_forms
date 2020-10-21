@@ -3,18 +3,18 @@
   flex-direction: row;
   align-content: space-around;
   margin: 10px auto 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 .sc-items1 {
   flex: 0 1 auto;
-  width: 60%;
+  width: 70%;
   margin: 0.3em;
 }
 
 .sc-items2 {
   flex: 0 1 auto;
-  width: 40%;
+  width: 30%;
   margin: 0.3em;
 }
 
@@ -31,7 +31,40 @@
   margin-right: 8px;
 }
 
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 30px;
+}
+
+.example-container .mat-form-field {
+  width: 220px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin: 5px 0;
+}
+
+.example-container .mat-radio-button {
+  margin: 0 12px;
+}
+
+.info-subhead {
+  color: blue;
+}
+
+.customer-type {
+  margin: 20px 10px;
+}
+// .example-container .mat-radio-group {
+//   margin-left: 20px;
+// }
+
+
 .mat-form-field {
-  margin-top: 16px;
-  width: 100%;
+  // margin-top: 8px;
+  // width: 220px;
+  // width: 100%;
 }
