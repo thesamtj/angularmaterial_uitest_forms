@@ -2,31 +2,33 @@
   <div class="sc-container">
     <div class="sc-items1">
       <mat-card class="example2-card">
-
         <mat-tab-group>
           <!-- basicInfoFormGroup-->
           <mat-tab>
             <!-- #docregion label-directive -->
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">account_circle</mat-icon>
               Basic Info
             </ng-template>
             <!-- #enddocregion label-directive -->
             <div class="example-container">
-
               <div class="customer-type">
                 <mat-label>Customer Type: </mat-label>
-                <mat-radio-group
-                  [(ngModel)]="typeOfAccount"
-                  required
-                >
-                  <mat-radio-button value="Individual">Individual</mat-radio-button>
-                  <mat-radio-button value="Corporate">Corporate</mat-radio-button>
+                <mat-radio-group [(ngModel)]="typeOfAccount" required>
+                  <mat-radio-button value="Individual"
+                    >Individual</mat-radio-button
+                  >
+                  <mat-radio-button value="Corporate"
+                    >Corporate</mat-radio-button
+                  >
                 </mat-radio-group>
               </div>
 
               <!-- Individual Account-->
-              <form [formGroup]="iBasicInfoFormGroup" *ngIf="typeOfAccount == 'Individual'">
+              <form
+                [formGroup]="iBasicInfoFormGroup"
+                *ngIf="typeOfAccount == 'Individual'"
+              >
                 <mat-form-field appearance="fill">
                   <mat-label>First Name</mat-label>
                   <input
@@ -99,6 +101,19 @@
                     <mat-option>-- Select Any --</mat-option>
                     <mat-option value="Christianity">Christianity</mat-option>
                     <mat-option value="Islam">Islam</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Marital Status</mat-label>
+                  <mat-select
+                    formControlName="maritalStatus"
+                    placeholder="Marital Status"
+                    [(ngModel)]="customerView.vMaritalStatus"
+                    required
+                  >
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="Married">Married</mat-option>
+                    <mat-option value="Not Married">Not Married</mat-option>
                   </mat-select>
                 </mat-form-field>
                 <div>
@@ -201,8 +216,10 @@
               </form>
 
               <!-- Corporate Account-->
-              <form [formGroup]="cBasicInfoFormGroup"
-              *ngIf="typeOfAccount == 'Corporate'">
+              <form
+                [formGroup]="cBasicInfoFormGroup"
+                *ngIf="typeOfAccount == 'Corporate'"
+              >
                 <mat-form-field appearance="fill">
                   <mat-label>Full Name</mat-label>
                   <input
@@ -215,18 +232,18 @@
                   />
                 </mat-form-field>
                 <mat-form-field appearance="fill">
-                <mat-label>Customer Type</mat-label>
-                <mat-select
-                  formControlName="cCustomerType"
-                  placeholder="Select Type"
-                  [(ngModel)]="customerView.vCCustomerType"
-                  required
-                >
-                  <mat-option>-- Select Any --</mat-option>
-                  <mat-option value="Bank">61400</mat-option>
-                  <mat-option value="Company">61420</mat-option>
-                </mat-select>
-              </mat-form-field>
+                  <mat-label>Customer Type</mat-label>
+                  <mat-select
+                    formControlName="cCustomerType"
+                    placeholder="Select Type"
+                    [(ngModel)]="customerView.vCCustomerType"
+                    required
+                  >
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="Bank">61400</mat-option>
+                    <mat-option value="Company">61420</mat-option>
+                  </mat-select>
+                </mat-form-field>
                 <br />
                 <mat-form-field appearance="fill">
                   <mat-label>Nationality</mat-label>
@@ -364,337 +381,362 @@
           <!-- addressInfoFormGroup-->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">home</mat-icon>
               Contact Addresses
             </ng-template>
-            <form [formGroup]="addressInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>Street</mat-label>
-                <input
-                  matInput
-                  formControlName="street"
-                  placeholder="Ex. 1 Main St, New York, NY"
-                  [(ngModel)]="customerView.vStreet"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>City</mat-label>
-                <input
-                  matInput
-                  placeholder="City"
-                  formControlName="city"
-                  [(ngModel)]="customerView.vCity"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>State</mat-label>
-                <input
-                  matInput
-                  placeholder="State"
-                  formControlName="state"
-                  [(ngModel)]="customerView.vState"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Dispatch</mat-label>
-                <mat-select
-                  formControlName="dispatch"
-                  placeholder="Dispatch"
-                  [(ngModel)]="customerView.vDispatch"
-                  required
-                >
-                  <mat-option>-- Choose --</mat-option>
-                  <mat-option value="True">True</mat-option>
-                  <mat-option value="False">False</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Postal Code</mat-label>
-                <input
-                  matInput
-                  placeholder="Postal Code"
-                  formControlName="postalCode"
-                  [(ngModel)]="customerView.vPostalCode"
-                  type="number"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+            <div class="example-container">
+              <form [formGroup]="addressInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>Street</mat-label>
+                  <input
+                    matInput
+                    formControlName="street"
+                    placeholder="Ex. 1 Main St, New York, NY"
+                    [(ngModel)]="customerView.vStreet"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>City</mat-label>
+                  <input
+                    matInput
+                    placeholder="City"
+                    formControlName="city"
+                    [(ngModel)]="customerView.vCity"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>State</mat-label>
+                  <input
+                    matInput
+                    placeholder="State"
+                    formControlName="state"
+                    [(ngModel)]="customerView.vState"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field appearance="fill">
+                  <mat-label>Dispatch</mat-label>
+                  <mat-select
+                    formControlName="dispatch"
+                    placeholder="Dispatch"
+                    [(ngModel)]="customerView.vDispatch"
+                    required
+                  >
+                    <mat-option>-- Choose --</mat-option>
+                    <mat-option value="True">True</mat-option>
+                    <mat-option value="False">False</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Postal Code</mat-label>
+                  <input
+                    matInput
+                    placeholder="Postal Code"
+                    formControlName="postalCode"
+                    [(ngModel)]="customerView.vPostalCode"
+                    type="number"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                  <button mat-button>Add</button>
+                </div>
+              </form>
+
+              <!-- <table mat-table class="mat-elevation-z8">
+                <ng-container matColumnDef="position">
+                  <th mat-header-cell mat-sort-header *matHeaderCellDef>S/N</th>
+                  <td mat-cell>1</td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell mat-sort-header *matHeaderCellDef>
+                    NAME
+                  </th>
+                  <td mat-cell>Samuel Tijani</td>
+                </ng-container>
+
+                <ng-container matColumnDef="phoneNo">
+                  <th mat-header-cell *matHeaderCellDef>PHONE NO</th>
+                  <td mat-cell>23783765646</td>
+                </ng-container>
+              </table> -->
+            </div>
           </mat-tab>
 
           <!-- phoneInfoFormGroup-->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">settings_phone</mat-icon>
               Telephone Numbers
             </ng-template>
-            <form [formGroup]="phoneInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>Telephone No</mat-label>
-                <input
-                  matInput
-                  placeholder="Telephone No"
-                  formControlName="telNo"
-                  [(ngModel)]="customerView.vTelNo"
-                  type="tel"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Extension</mat-label>
-                <input
-                  matInput
-                  placeholder="Extension"
-                  formControlName="extension"
-                  [(ngModel)]="customerView.vExtension"
-                  type="number"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+            <div class="example-container">
+              <form [formGroup]="phoneInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>Telephone No</mat-label>
+                  <input
+                    matInput
+                    placeholder="Telephone No"
+                    formControlName="telNo"
+                    [(ngModel)]="customerView.vTelNo"
+                    type="tel"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Extension</mat-label>
+                  <input
+                    matInput
+                    placeholder="Extension"
+                    formControlName="extension"
+                    [(ngModel)]="customerView.vExtension"
+                    type="number"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                  <button mat-button>Add</button>
+                </div>
+              </form>
+            </div>
           </mat-tab>
 
           <!-- emailInfoFormGroup-->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">contact_mail</mat-icon>
               Email Addresses
             </ng-template>
-            <form [formGroup]="emailInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>Email Address</mat-label>
-                <input
-                  matInput
-                  placeholder="Email Address"
-                  formControlName="emailAddress"
-                  [(ngModel)]="customerView.vEmailAddress"
-                  type="email"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Primary</mat-label>
-                <mat-select
-                  formControlName="primary"
-                  placeholder="Primary"
-                  [(ngModel)]="customerView.vPrimary"
-                  required
-                >
-                  <mat-option>-- Choose --</mat-option>
-                  <mat-option value="Yes">Yes</mat-option>
-                  <mat-option value="No">No</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+            <div class="example-container">
+              <form [formGroup]="emailInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>Email Address</mat-label>
+                  <input
+                    matInput
+                    placeholder="Email Address"
+                    formControlName="emailAddress"
+                    [(ngModel)]="customerView.vEmailAddress"
+                    type="email"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Primary</mat-label>
+                  <mat-select
+                    formControlName="primary"
+                    placeholder="Primary"
+                    [(ngModel)]="customerView.vPrimary"
+                    required
+                  >
+                    <mat-option>-- Choose --</mat-option>
+                    <mat-option value="Yes">Yes</mat-option>
+                    <mat-option value="No">No</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                  <button mat-button>Add</button>
+                </div>
+              </form>
+            </div>
           </mat-tab>
 
           <!-- identityInfoFormGroup-->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">perm_identity</mat-icon>
               Identification Modes
             </ng-template>
-            <form [formGroup]="identityInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>ID Type</mat-label>
-                <mat-select
-                  formControlName="idType"
-                  placeholder="ID Type"
-                  [(ngModel)]="customerView.vIdType"
-                  required
-                >
-                  <mat-option>-- Select Any --</mat-option>
-                  <mat-option value="International Passport"
-                    >International Passport</mat-option
+            <div class="example-container">
+              <form [formGroup]="identityInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>ID Type</mat-label>
+                  <mat-select
+                    formControlName="idType"
+                    placeholder="ID Type"
+                    [(ngModel)]="customerView.vIdType"
+                    required
                   >
-                  <mat-option value="Employer ID">Employer ID</mat-option>
-                </mat-select>
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>ID No</mat-label>
-                <input
-                  matInput
-                  placeholder="ID No"
-                  formControlName="idNo"
-                  [(ngModel)]="customerView.vIdNo"
-                  type="number"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Issuer</mat-label>
-                <input
-                  matInput
-                  placeholder="Issuer"
-                  formControlName="issuer"
-                  [(ngModel)]="customerView.vIssuer"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Expiry Date</mat-label>
-                <input
-                  matInput
-                  placeholder="Expiry Date"
-                  formControlName="expiryDate"
-                  [(ngModel)]="customerView.vExpiryDate"
-                  type="date"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="International Passport"
+                      >International Passport</mat-option
+                    >
+                    <mat-option value="Employer ID">Employer ID</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>ID No</mat-label>
+                  <input
+                    matInput
+                    placeholder="ID No"
+                    formControlName="idNo"
+                    [(ngModel)]="customerView.vIdNo"
+                    type="number"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field appearance="fill">
+                  <mat-label>Issuer</mat-label>
+                  <input
+                    matInput
+                    placeholder="Issuer"
+                    formControlName="issuer"
+                    [(ngModel)]="customerView.vIssuer"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Expiry Date</mat-label>
+                  <input
+                    matInput
+                    placeholder="Expiry Date"
+                    formControlName="expiryDate"
+                    [(ngModel)]="customerView.vExpiryDate"
+                    type="date"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                </div>
+              </form>
+            </div>
           </mat-tab>
 
           <!-- educationalInfoFormGroup-->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">school</mat-icon>
               Educational Background
             </ng-template>
-            <form [formGroup]="educationalInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>Educational Level</mat-label>
-                <mat-select
-                  formControlName="eduLevel"
-                  placeholder="Educational Level"
-                  [(ngModel)]="customerView.vEduLevel"
-                  required
-                >
-                  <mat-option>-- Select Any --</mat-option>
-                  <mat-option value="Graduate Level">Graduate Level</mat-option>
-                  <mat-option value="High School Level"
-                    >High School Level</mat-option
+            <div class="example-container">
+              <form [formGroup]="educationalInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>Educational Level</mat-label>
+                  <mat-select
+                    formControlName="eduLevel"
+                    placeholder="Educational Level"
+                    [(ngModel)]="customerView.vEduLevel"
+                    required
                   >
-                </mat-select>
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Certificate</mat-label>
-                <input
-                  matInput
-                  placeholder="Certificate Obtained"
-                  formControlName="cert"
-                  [(ngModel)]="customerView.vCert"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Institution</mat-label>
-                <input
-                  matInput
-                  placeholder="Institution"
-                  formControlName="institution"
-                  [(ngModel)]="customerView.vInstitution"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="Graduate Level"
+                      >Graduate Level</mat-option
+                    >
+                    <mat-option value="High School Level"
+                      >High School Level</mat-option
+                    >
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Certificate</mat-label>
+                  <input
+                    matInput
+                    placeholder="Certificate Obtained"
+                    formControlName="cert"
+                    [(ngModel)]="customerView.vCert"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Institution</mat-label>
+                  <input
+                    matInput
+                    placeholder="Institution"
+                    formControlName="institution"
+                    [(ngModel)]="customerView.vInstitution"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                  <button mat-button>Add</button>
+                </div>
+              </form>
+            </div>
           </mat-tab>
 
           <!-- Related Party -->
           <mat-tab>
             <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+              <mat-icon class="example-tab-icon">people</mat-icon>
               Related Parties
             </ng-template>
-            <form [formGroup]="otherInfoFormGroup">
-              <mat-form-field appearance="fill">
-                <mat-label>Related Party Type</mat-label>
-                <input
-                  matInput
-                  placeholder="Related Party Type"
-                  formControlName="relatedType"
-                  [(ngModel)]="customerView.vRelatedType"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input
-                  matInput
-                  placeholder="First Name"
-                  formControlName="relatedFN"
-                  [(ngModel)]="customerView.vRelatedFN"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Middle Name</mat-label>
-                <input
-                  matInput
-                  placeholder="Middle Name"
-                  formControlName="relatedMN"
-                  [(ngModel)]="customerView.vRelatedMN"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <mat-form-field appearance="fill">
-                <mat-label>Related Name</mat-label>
-                <input
-                  matInput
-                  placeholder="Related Name"
-                  formControlName="relatedSN"
-                  [(ngModel)]="customerView.vRelatedSN"
-                  type="text"
-                  required
-                />
-              </mat-form-field>
-              <br />
-              <div>
-                <button mat-button>Back</button>
-                <button mat-button>Next</button>
-              </div>
-            </form>
+            <div class="example-container">
+              <form [formGroup]="otherInfoFormGroup">
+                <mat-form-field appearance="fill">
+                  <mat-label>Related Party Type</mat-label>
+                  <input
+                    matInput
+                    placeholder="Related Party Type"
+                    formControlName="relatedType"
+                    [(ngModel)]="customerView.vRelatedType"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>First Name</mat-label>
+                  <input
+                    matInput
+                    placeholder="First Name"
+                    formControlName="relatedFN"
+                    [(ngModel)]="customerView.vRelatedFN"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <mat-form-field appearance="fill">
+                  <mat-label>Middle Name</mat-label>
+                  <input
+                    matInput
+                    placeholder="Middle Name"
+                    formControlName="relatedMN"
+                    [(ngModel)]="customerView.vRelatedMN"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>Related SurName</mat-label>
+                  <input
+                    matInput
+                    placeholder="Related Name"
+                    formControlName="relatedSN"
+                    [(ngModel)]="customerView.vRelatedSN"
+                    type="text"
+                    required
+                  />
+                </mat-form-field>
+                <br />
+                <div>
+                  <button mat-button>Back</button>
+                  <button mat-button>Next</button>
+                </div>
+              </form>
+            </div>
           </mat-tab>
 
           <!-- <mat-tab>
@@ -706,12 +748,9 @@
             Content 3
           </mat-tab> -->
         </mat-tab-group>
-
-
-
-
       </mat-card>
     </div>
+
     <div class="sc-items2">
       <mat-card class="example2-card">
         <mat-card-header>
@@ -727,89 +766,114 @@
             <h4>Basic Information</h4>
             <mat-divider></mat-divider>
             <h5 class="info-head">
-              <strong>Customer ID</strong>: <span class="info-subhead">0007323367787</span>
+              <strong>Customer ID</strong>:
+              <span class="info-subhead">0007323367787</span>
             </h5>
             <!-- Individuals-->
             <ng-container *ngIf="typeOfAccount == 'Individual'">
-            <h5 class="info-head">
-              <strong>Full Name</strong>: <span class="info-subhead">{{ customerView.vTtitle }}&ensp;{{
-                customerView.vFirstName
-              }}&ensp;{{ customerView.vMiddleName }}&ensp;{{
-                customerView.vLastName
-              }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Gender</strong>: <span class="info-subhead">{{ customerView.vGender }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Customer Type</strong>: <span class="info-subhead">{{ customerView.vCustomerType }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Religion</strong>: <span class="info-subhead">{{ customerView.vReligion }}
-              </span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Nationality</strong>: <span class="info-subhead">{{ customerView.vNationality }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>State</strong>: <span class="info-subhead">{{ customerView.vSoo }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Local Govt Area</strong>: <span class="info-subhead">{{ customerView.vLga }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Birth Date</strong>: <span class="info-subhead">{{ customerView.vBirthDate }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Birth Place:</strong> <span class="info-subhead">{{ customerView.vBirthDate }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>TIN No</strong>: <span class="info-subhead">{{ customerView.vTin }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Bank Verification No</strong>: <span class="info-subhead">{{ customerView.vBvn }}</span>
-            </h5>
-           </ng-container>
+              <h5 class="info-head">
+                <strong>Full Name</strong>:
+                <span class="info-subhead"
+                  >{{ customerView.vTtitle }}&ensp;{{
+                    customerView.vFirstName
+                  }}&ensp;{{ customerView.vMiddleName }}&ensp;{{
+                    customerView.vLastName
+                  }}</span
+                >
+              </h5>
+              <h5 class="info-head">
+                <strong>Gender</strong>:
+                <span class="info-subhead">{{ customerView.vGender }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Customer Type</strong>:
+                <span class="info-subhead">{{
+                  customerView.vCustomerType
+                }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Religion</strong>:
+                <span class="info-subhead">{{ customerView.vReligion }} </span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Nationality</strong>:
+                <span class="info-subhead">{{
+                  customerView.vNationality
+                }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>State</strong>:
+                <span class="info-subhead">{{ customerView.vSoo }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Local Govt Area</strong>:
+                <span class="info-subhead">{{ customerView.vLga }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Birth Date</strong>:
+                <span class="info-subhead">{{ customerView.vBirthDate }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Birth Place:</strong>
+                <span class="info-subhead">{{ customerView.vBirthDate }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>TIN No</strong>:
+                <span class="info-subhead">{{ customerView.vTin }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Bank Verification No</strong>:
+                <span class="info-subhead">{{ customerView.vBvn }}</span>
+              </h5>
+            </ng-container>
 
-           <!-- Corporate-->
-           <ng-container *ngIf="typeOfAccount == 'Corporate'">
-            <h5 class="info-head">
-              <strong>Full Name</strong>: <span class="info-subhead">{{ customerView.vCFullName }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Customer Type</strong>: <span class="info-subhead">{{ customerView.vCCustomerType }}</span>
-            </h5>
-            <h5 class="info-head">
-              <strong>Nationality</strong>: {{ customerView.vCNationality }}
-            </h5>
-            <h5 class="info-head">
-              <strong>State Of Registration</strong>: {{ customerView.vCSor }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Local Govt Area</strong>: {{ customerView.vCLga }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Registration Date</strong>: {{ customerView.vCRegDate }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Registration Place:</strong> {{ customerView.vCRegPlace }}
-            </h5>
-            <h5 class="info-head">
-              <strong>TIN No</strong>: {{ customerView.vCTin }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Business Type</strong>: {{ customerView.vCBType }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Certificate Of Incorporation No:</strong>: {{ customerView.vCOin }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Date Of Incorporation:</strong>: {{ customerView.vDOin }}
-            </h5>
-            <h5 class="info-head">
-              <strong>Certificate Issuer:</strong>: {{ customerView.vCertIssuer }}
-            </h5>
-           </ng-container>
+            <!-- Corporate-->
+            <ng-container *ngIf="typeOfAccount == 'Corporate'">
+              <h5 class="info-head">
+                <strong>Full Name</strong>:
+                <span class="info-subhead">{{ customerView.vCFullName }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Customer Type</strong>:
+                <span class="info-subhead">{{
+                  customerView.vCCustomerType
+                }}</span>
+              </h5>
+              <h5 class="info-head">
+                <strong>Nationality</strong>: {{ customerView.vCNationality }}
+              </h5>
+              <h5 class="info-head">
+                <strong>State Of Registration</strong>: {{ customerView.vCSor }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Local Govt Area</strong>: {{ customerView.vCLga }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Registration Date</strong>: {{ customerView.vCRegDate }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Registration Place:</strong>
+                {{ customerView.vCRegPlace }}
+              </h5>
+              <h5 class="info-head">
+                <strong>TIN No</strong>: {{ customerView.vCTin }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Business Type</strong>: {{ customerView.vCBType }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Certificate Of Incorporation No:</strong>:
+                {{ customerView.vCOin }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Date Of Incorporation:</strong>:
+                {{ customerView.vDOin }}
+              </h5>
+              <h5 class="info-head">
+                <strong>Certificate Issuer:</strong>:
+                {{ customerView.vCertIssuer }}
+              </h5>
+            </ng-container>
           </div>
 
           <br />
